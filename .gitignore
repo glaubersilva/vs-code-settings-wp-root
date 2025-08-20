@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!.php-cs-fixer.php
+!composer.json
+!composer.lock
+!README.md
+
+# And not these directories...
+!.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json

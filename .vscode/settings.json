@@ -1,0 +1,157 @@
+{
+    // Editor Configuration
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "always"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+
+    // PHP Configuration - Set PHP CS Fixer as default formatter
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+
+    // PHP CS Fixer Configuration - Using Composer installed version
+    "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
+    "php-cs-fixer.executablePathWindows": "${workspaceFolder}/vendor/bin/php-cs-fixer.bat",
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.rules": "@PSR12",
+    "php-cs-fixer.config": ".php-cs-fixer.php",
+    "php-cs-fixer.allowRisky": false,
+    "php-cs-fixer.pathMode": "override",
+    "php-cs-fixer.ignorePHPVersion": false,
+    "php-cs-fixer.exclude": [
+        "vendor/**",
+        "node_modules/**",
+        "build/**",
+        "dist/**",
+        "wp-content/uploads/**",
+        "wp-content/cache/**",
+        "**/includes/**"
+    ],
+    "php-cs-fixer.autoFixByBracket": false,
+    "php-cs-fixer.autoFixBySemicolon": false,
+    "php-cs-fixer.formatHtml": false,
+    "php-cs-fixer.documentFormattingProvider": true,
+
+    // JavaScript/TypeScript Configuration
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+
+    // Prettier Configuration
+    "prettier.requireConfig": true,
+    "prettier.useEditorConfig": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "prettier.bracketSpacing": false,
+
+    // PHP Intelephense Configuration (IntelliSense only)
+    "intelephense.format.enable": false,
+    "intelephense.completion.insertUseDeclaration": true,
+    "intelephense.completion.triggerParameterHints": true,
+    "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
+    "intelephense.codeLens.implementations.enable": true,
+    "intelephense.codeLens.overrides.enable": true,
+    "intelephense.codeLens.parent.enable": true,
+    "intelephense.codeLens.references.enable": true,
+    "intelephense.codeLens.usages.enable": true,
+    "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+    "intelephense.files.associations": ["*.php", "*.phtml"],
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/.history/**",
+        "**/includes/**"
+    ],
+
+    // ESLint Configuration
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "eslint.workingDirectories": ["./"],
+
+    // TypeScript Configuration
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.suggest.autoImports": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+
+    // File Associations
+    "files.associations": {
+        "*.php": "php",
+        "*.js": "javascript",
+        "*.jsx": "javascriptreact",
+        "*.ts": "typescript",
+        "*.tsx": "typescriptreact",
+        "*.json": "json",
+        "*.css": "css",
+        "*.scss": "scss"
+    },
+
+    // Exclude patterns
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/.git": true,
+        "**/build": true,
+        "**/dist": true
+    },
+
+    // Search exclude patterns
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/vendor": true,
+        "**/.git": true,
+        "**/build": true,
+        "**/dist": true
+    }
+}

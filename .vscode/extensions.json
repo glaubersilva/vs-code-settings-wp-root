@@ -1,0 +1,41 @@
+{
+    "recommendations": [
+        // Essential extensions for settings.json to work properly
+
+        // PHP Development - Required for PHP formatting and IntelliSense
+        "bmewburn.vscode-intelephense-client", // PHP IntelliSense, autocomplete, and navigation
+        "junstyle.php-cs-fixer", // PHP CS Fixer for automatic code formatting
+
+        // JavaScript/TypeScript Development - Required for formatting and linting
+        "esbenp.prettier-vscode", // Code formatter for JS, TS, JSON, CSS, SCSS
+        "dbaeumer.vscode-eslint", // ESLint for JavaScript/TypeScript linting
+        "ms-vscode.vscode-typescript-next", // Enhanced TypeScript support
+
+        // Development Tools - Productivity extensions
+        "wix.vscode-import-cost", // Shows import/require package sizes
+        "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense (if using Tailwind)
+        "formulahendry.auto-rename-tag", // Auto rename paired HTML/XML tags
+        "christian-kohler.path-intellisense", // File path autocomplete
+        "ms-vscode.vscode-json", // JSON language support
+
+        // Git and Version Control
+        "eamodio.gitlens", // Enhanced Git capabilities
+        "mhutchie.git-graph", // Git graph visualization
+
+        // WordPress Development (optional but useful for WordPress projects)
+        "wordpresstoolbox.wordpress-toolbox", // WordPress snippets and tools
+        "johnbillion.vscode-wordpress-hooks", // WordPress hooks IntelliSense
+
+        // Additional Useful Extensions
+        "ms-vscode.vscode-css-peek", // CSS peek functionality
+        "zignd.html-css-class-completion", // CSS class name completion
+
+        // Advanced PHP Refactoring
+        "MehediDracula.php-namespace-resolver", // PHP namespace resolver and refactoring
+        "neilbrayfield.php-docblocker", // PHP DocBlocker
+
+        // File and Class Renaming
+        "ms-vscode.vscode-rename", // Enhanced rename functionality
+        "ms-vscode.vscode-move" // Move files and update imports
+    ]
+}
