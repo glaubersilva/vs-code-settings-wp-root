@@ -163,24 +163,26 @@ The following extensions are **required** for the configurations to work properl
 #### Productivity
 
 -   **Import Cost** (`wix.vscode-import-cost`) - Shows imported package sizes
--   **Tailwind CSS IntelliSense** (`bradlc.vscode-tailwindcss`) - If using Tailwind CSS
 -   **Auto Rename Tag** (`formulahendry.auto-rename-tag`) - Auto-rename paired HTML/XML tags
+-   **Auto Close Tag** (`formulahendry.auto-close-tag`) - Auto-close HTML/XML tags
 -   **Path Intellisense** (`christian-kohler.path-intellisense`) - File path autocomplete
+-   **npm Intellisense** (`christian-kohler.npm-intellisense`) - Autocomplete for npm modules
+-   **Bracket Pair Colorizer 2** (`CoenraadS.bracket-pair-colorizer-2`) - Colorizes matching brackets
 
 #### Git and Version Control
 
--   **GitLens** (`eamodio.gitlens`) - Enhanced Git capabilities
--   **Git Graph** (`mhutchie.git-graph`) - Git graph visualization
+-   **Git Toolbox** (`eamodio.gitlens`) - Enhanced Git capabilities and visualization
+-   **Open in GitHub, GitLab, Gitea, Bitbucket, VisualStudio.com** (`ziyasal.vscode-open-in-github`) - Open files in Git platforms
 
 #### WordPress Development
 
--   **WordPress Toolbox** (`wordpresstoolbox.wordpress-toolbox`) - WordPress snippets and tools
 -   **WordPress Hooks** (`johnbillion.vscode-wordpress-hooks`) - WordPress hooks IntelliSense
 
 #### Advanced PHP
 
--   **PHP Namespace Resolver** (`MehediDracula.php-namespace-resolver`) - PHP namespace resolver and refactoring
 -   **PHP DocBlocker** (`neilbrayfield.php-docblocker`) - PHP DocBlock generator
+-   **PHP Debug** (`xdebug.php-debug`) - PHP debugging support
+-   **Tag Highlight Matching** (`vincaslt.highlight-matching-tag`) - Highlights matching HTML/XML tags
 
 ## ⚙️ Included Configurations
 

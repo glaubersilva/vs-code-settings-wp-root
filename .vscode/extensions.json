@@ -11,31 +11,26 @@
         "dbaeumer.vscode-eslint", // ESLint for JavaScript/TypeScript linting
         "ms-vscode.vscode-typescript-next", // Enhanced TypeScript support
 
-        // Development Tools - Productivity extensions
-        "wix.vscode-import-cost", // Shows import/require package sizes
-        "bradlc.vscode-tailwindcss", // Tailwind CSS IntelliSense (if using Tailwind)
-        "formulahendry.auto-rename-tag", // Auto rename paired HTML/XML tags
+        // Recommended Extensions (Optional)
+
+        // Productivity
+        "wix.vscode-import-cost", // Shows imported package sizes
+        "formulahendry.auto-rename-tag", // Auto-rename paired HTML/XML tags
+        "formulahendry.auto-close-tag", // Auto-close HTML/XML tags
         "christian-kohler.path-intellisense", // File path autocomplete
-        "ms-vscode.vscode-json", // JSON language support
+        "christian-kohler.npm-intellisense", // Autocomplete for npm modules
+        "CoenraadS.bracket-pair-colorizer-2", // Colorizes matching brackets
 
         // Git and Version Control
-        "eamodio.gitlens", // Enhanced Git capabilities
-        "mhutchie.git-graph", // Git graph visualization
+        "eamodio.gitlens", // Enhanced Git capabilities and visualization
+        "ziyasal.vscode-open-in-github", // Open files in Git platforms
 
-        // WordPress Development (optional but useful for WordPress projects)
-        "wordpresstoolbox.wordpress-toolbox", // WordPress snippets and tools
+        // WordPress Development
         "johnbillion.vscode-wordpress-hooks", // WordPress hooks IntelliSense
 
-        // Additional Useful Extensions
-        "ms-vscode.vscode-css-peek", // CSS peek functionality
-        "zignd.html-css-class-completion", // CSS class name completion
-
-        // Advanced PHP Refactoring
-        "MehediDracula.php-namespace-resolver", // PHP namespace resolver and refactoring
-        "neilbrayfield.php-docblocker", // PHP DocBlocker
-
-        // File and Class Renaming
-        "ms-vscode.vscode-rename", // Enhanced rename functionality
-        "ms-vscode.vscode-move" // Move files and update imports
+        // Advanced PHP
+        "neilbrayfield.php-docblocker", // PHP DocBlock generator
+        "xdebug.php-debug", // PHP debugging support
+        "vincaslt.highlight-matching-tag" // Highlights matching HTML/XML tags
     ]
 }
