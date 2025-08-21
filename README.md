@@ -1,6 +1,6 @@
 # VS Code Standards for GiveWP Development
 
-This repository contains standardized VS Code configurations for GiveWP ecosystem development in a local WordPress environment, including automatic code formatting, linting, and essential extensions.
+This repository contains standardized VS Code configurations for GiveWP ecosystem development in a local WordPress environment, providing **PHPStorm-like capabilities** including automatic code formatting, code standards enforcement, advanced code navigation, and powerful refactoring features.
 
 ## 🎯 Installation Location
 
@@ -32,17 +32,20 @@ your-wordpress-site/
 -   **Consistent formatting**: All plugins share the same formatting rules
 -   **Centralized configuration**: One set of rules for the entire ecosystem
 
-## 📏 Code Standards
+## 📏 Code Standards & Development Features
 
-### PHP Standards
+### PHP Standards & Advanced Features
 
 -   **PSR-12** coding standards for all PHP files
--   Automatic formatting on save using PHP CS Fixer
--   Automatic import organization and namespace resolution
+-   **Automatic formatting on save** using PHP CS Fixer (PHPStorm-like behavior)
+-   **Automatic import organization** and namespace resolution
+-   **Advanced code navigation** with "Go to Definition", "Find All References", and "Go to Implementation"
+-   **Intelligent refactoring** with automatic class renaming and usage updates
+-   **Automatic DocBlock generation** - Type `/**` and press Enter to generate complete documentation blocks
 -   **Excluded from auto-formatting**: Files in `includes/` directories (legacy code)
 -   **Excluded from auto-formatting**: `vendor/`, `node_modules/`, `build/`, `dist/`, `wp-content/uploads/`, `wp-content/cache/`
 
-### JavaScript/TypeScript Standards
+### JavaScript/TypeScript Standards & Features
 
 -   **Prettier** formatting with custom rules (configured in `.vscode/settings.json`):
 -   **Tab Width**: 4 spaces
@@ -53,12 +56,30 @@ your-wordpress-site/
 -   **Semicolons**: Required
 -   **Arrow Function Parentheses**: Avoided when possible
 -   **ESLint** for code quality and consistency
--   Automatic import organization on save
+-   **Automatic import organization** on save
+-   **Advanced IntelliSense** with enhanced autocomplete and error detection
 -   **Excluded from auto-formatting**: `node_modules/`, `build/`, `dist/`
 
 ### Important Note
 
 Legacy files within `includes/` directories will **NOT** have automatic formatting applied when saving. This prevents potential issues with existing code that may not follow current standards.
+
+### 🚀 PHPStorm-Like Features
+
+This configuration transforms VS Code/Cursor into a powerful PHP development environment with features comparable to PHPStorm:
+
+-   **Automatic Code Formatting**: Code is automatically formatted to PSR-12 standards when you save files
+-   **Advanced Code Navigation**:
+    -   `Ctrl+Click` or `F12` to go to definition
+    -   `Shift+F12` to find all references
+    -   `Ctrl+Shift+O` to navigate to symbols in file
+-   **Intelligent Refactoring**:
+    -   Press `F2` on any class name, method, or variable to rename it across the entire codebase
+    -   Namespace resolution and automatic use statement generation
+-   **Enhanced Documentation**:
+    -   Type `/**` and press Enter to automatically generate complete DocBlocks
+    -   Intelligent parameter and return type suggestions
+-   **WordPress Integration**: Advanced understanding of WordPress hooks, functions, and patterns
 
 ## 🏗️ Project Structure Philosophy
 
@@ -134,32 +155,39 @@ The following extensions are **required** for the configurations to work properl
 
 -   **PHP Intelephense** (`bmewburn.vscode-intelephense-client`)
 
-    -   Provides IntelliSense, autocomplete, and navigation for PHP
+    -   Provides **PHPStorm-like IntelliSense**, autocomplete, and navigation for PHP
+    -   **Advanced code analysis** and semantic understanding
+    -   **Intelligent refactoring** with automatic usage updates
+    -   **Enhanced code navigation** with "Go to Definition", "Find All References", and "Go to Implementation"
+    -   **Automatic DocBlock generation** - Type `/**` and press Enter
     -   Configured to work only with IntelliSense (formatting disabled)
     -   **⚠️ EXTREMELY IMPORTANT**: Purchase the **lifetime license** for premium features and superior PHP code navigation
     -   **Premium features include**: Advanced code analysis, better autocomplete, improved refactoring tools, and enhanced code navigation
     -   **Without the license**: Limited functionality and basic IntelliSense only
 
 -   **PHP CS Fixer** (`junstyle.php-cs-fixer`)
-    -   Automatic PHP code formatting following PSR-12
+    -   **Automatic PHP code formatting** following PSR-12 (PHPStorm-like behavior)
     -   Configured to use the version installed via Composer
-    -   Formats automatically on save
+    -   **Formats automatically on save** - no manual formatting needed
+    -   **Automatic import organization** and namespace resolution
 
 #### JavaScript/TypeScript Development
 
 -   **Prettier** (`esbenp.prettier-vscode`)
 
-    -   Code formatter for JS, TS, JSON, CSS, SCSS
-    -   Configured to format automatically on save
+    -   **Automatic code formatter** for JS, TS, JSON, CSS, SCSS (PHPStorm-like behavior)
+    -   **Formats automatically on save** - no manual formatting needed
     -   Uses settings from `.prettierrc.json`
 
 -   **ESLint** (`dbaeumer.vscode-eslint`)
 
-    -   Linting for JavaScript/TypeScript
-    -   Validates code automatically
+    -   **Advanced linting** for JavaScript/TypeScript
+    -   **Real-time code validation** and error detection
+    -   **Automatic fix suggestions** on save
 
 -   **TypeScript Next** (`ms-vscode.vscode-typescript-next`)
-    -   Enhanced TypeScript support
+    -   **Enhanced TypeScript support** with advanced IntelliSense
+    -   **Improved type checking** and error detection
 
 ### 2.5. ⚠️ CRITICAL: Intelephense Lifetime License
 
@@ -169,11 +197,12 @@ The following extensions are **required** for the configurations to work properl
 
 -   **Advanced Code Analysis**: Superior understanding of PHP code structure and relationships
 -   **Enhanced Autocomplete**: More accurate and context-aware code suggestions
--   **Improved Refactoring**: Better tools for renaming, moving, and restructuring code
+-   **Intelligent Refactoring**: Advanced tools for renaming, moving, and restructuring code (F2 key functionality)
 -   **Superior Navigation**: Advanced "Go to Definition", "Find All References", and "Go to Implementation"
 -   **Better Error Detection**: More accurate syntax and semantic error detection
--   **Namespace Management**: Enhanced namespace resolution and import suggestions
+-   **Namespace Management**: Enhanced namespace resolution and automatic import suggestions
 -   **WordPress Integration**: Better understanding of WordPress hooks, functions, and patterns
+-   **Automatic DocBlock Generation**: Complete documentation block generation with `/**` + Enter
 
 #### Without the License:
 
@@ -181,12 +210,16 @@ The following extensions are **required** for the configurations to work properl
 -   Basic autocomplete only
 -   Reduced code analysis capabilities
 -   Missing advanced navigation features
+-   No intelligent refactoring (F2 key won't work properly)
+-   Limited DocBlock generation capabilities
 
 #### Purchase Information:
 
 -   **One-time payment**: Lifetime access to all premium features
 -   **Available at**: [Intelephense Premium](https://intelephense.com/premium)
 -   **Investment**: Essential for professional PHP development
+
+**⚠️ Note**: This recommendation is purely technical and based on the necessity of premium features for optimal PHP development experience. We do not receive any commission, affiliate benefits, or compensation from Intelephense. The recommendation is made solely because the premium features are essential for the advanced code navigation, refactoring, and IntelliSense capabilities described in this configuration.
 
 ### 3. Recommended Extensions (Optional)
 
@@ -214,17 +247,20 @@ The following extensions are **required** for the configurations to work properl
 
 ## ⚙️ Included Configurations
 
-### Automatic Formatting
+### Automatic Formatting & Code Standards
 
--   **PHP**: Automatic formatting on save using PHP CS Fixer (PSR-12)
+-   **PHP**: Automatic formatting on save using PHP CS Fixer (PSR-12) - PHPStorm-like behavior
 -   **JavaScript/TypeScript**: Automatic formatting on save using Prettier
 -   **CSS/SCSS**: Automatic formatting on save using Prettier
 -   **JSON**: Automatic formatting on save using Prettier
 
-### Import Organization
+### Advanced Code Navigation & Refactoring
 
--   Automatic import organization in JavaScript/TypeScript on save
--   Automatic PHP namespace resolution and import organization via PHP CS Fixer
+-   **PHP Navigation**: "Go to Definition" (F12), "Find All References" (Shift+F12), "Go to Implementation"
+-   **Intelligent Refactoring**: Press F2 on any class, method, or variable to rename across the entire codebase
+-   **Automatic Import Organization**: JavaScript/TypeScript imports organized on save
+-   **PHP Namespace Management**: Automatic namespace resolution and use statement generation via PHP CS Fixer
+-   **DocBlock Generation**: Type `/**` and press Enter for automatic documentation block generation
 
 ### Exclusions
 
