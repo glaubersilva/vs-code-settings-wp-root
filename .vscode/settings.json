@@ -145,7 +145,6 @@
     // Exclude patterns
     "files.exclude": {
         "**/node_modules": true,
-        "**/vendor": true,
         "**/.git": true,
         "**/build": true,
         "**/dist": true
@@ -154,7 +153,6 @@
     // Search exclude patterns
     "search.exclude": {
         "**/node_modules": true,
-        "**/vendor": true,
         "**/.git": true,
         "**/build": true,
         "**/dist": true
