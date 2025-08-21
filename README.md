@@ -154,10 +154,10 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 ##### Example Output
 
 ```
-🔍 Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
-📁 Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers
-🏷️  Current namespace: Give\API\REST\V3\Routes\Subscriptions
-🎯 Expected namespace: Give\API\REST\V3\Routes\Controllers
+🔍 Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Subscriptions/SubscriptionController.php
+📁 Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Subscriptions
+🏷️  Current namespace: Give\API\REST\V3\Routes\Donations
+🎯 Expected namespace: Give\API\REST\V3\Routes\Subscriptions
 
 🔄 Updating namespace...
 ✅ Namespace updated in file
