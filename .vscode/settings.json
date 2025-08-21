@@ -10,7 +10,7 @@
     "files.trimFinalNewlines": true,
 
     // PHP Configuration - Set PHP CS Fixer as default formatter
-    "php.suggest.basic": false,
+    "php.suggest.basic": true,
     "[php]": {
         "editor.defaultFormatter": "junstyle.php-cs-fixer"
     },
