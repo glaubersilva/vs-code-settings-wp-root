@@ -234,7 +234,7 @@ The following extensions are **required** for the configurations to work properl
 
 #### Git and Version Control
 
--   **Git Toolbox** (`eamodio.gitlens`) - Enhanced Git capabilities and visualization
+-   **Git Toolbox** (`gondor.git-toolbox`) - Enhanced Git capabilities and visualization
 -   **Open in GitHub, GitLab, Gitea, Bitbucket, VisualStudio.com** (`ziyasal.vscode-open-in-github`) - Open files in Git platforms
 
 #### WordPress Development
