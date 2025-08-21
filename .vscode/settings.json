@@ -19,12 +19,12 @@
     "php-cs-fixer.pathMode": "override",
     "php-cs-fixer.ignorePHPVersion": false,
     "php-cs-fixer.exclude": [
-        "vendor/**",
-        "node_modules/**",
-        "build/**",
-        "dist/**",
-        "wp-content/uploads/**",
-        "wp-content/cache/**",
+        "**/vendor/**",
+        "**/node_modules/**",
+        "**/build/**",
+        "**/dist/**",
+        "**/wp-content/uploads/**",
+        "**/wp-content/cache/**",
         "**/includes/**"
     ],
 
@@ -144,14 +144,5 @@
         "*.json": "json",
         "*.css": "css",
         "*.scss": "scss"
-    },
-
-    // Search exclude patterns (excludes from general searches, but keeps for Intelephense)
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/.git": true,
-        "**/build": true,
-        "**/dist": true,
-        "**/vendor": true
     }
 }
