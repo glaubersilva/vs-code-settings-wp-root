@@ -34,6 +34,7 @@
     "php-cs-fixer.documentFormattingProvider": true,
 
     // PHP Intelephense Configuration (IntelliSense only)
+    "intelephense.environment.phpVersion": "7.4.30",
     "intelephense.format.enable": false,
     "intelephense.completion.insertUseDeclaration": true,
     "intelephense.completion.triggerParameterHints": true,
