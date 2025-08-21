@@ -1,6 +1,6 @@
-# VS Code Standards for GiveWP Development
+# VS Code or Cursor Settings for GiveWP Development
 
-This repository contains standardized VS Code configurations for GiveWP ecosystem development in a local WordPress environment, providing **PHPStorm-like capabilities** including automatic code formatting, code standards enforcement, advanced code navigation, and powerful refactoring features.
+This repository contains standardized VS Code and Cursor configurations for GiveWP ecosystem development in a local WordPress environment, providing **PHPStorm-like capabilities** including automatic code formatting, code standards enforcement, advanced code navigation, and powerful refactoring features.
 
 ## 🎯 Installation Location
 
@@ -27,7 +27,7 @@ your-wordpress-site/
 
 ### Why the WordPress Root?
 
--   **VS Code workspace**: Opens the entire WordPress site as a workspace
+-   **VS Code/Cursor workspace**: Opens the entire WordPress site as a workspace
 -   **Plugin ecosystem access**: Can work on multiple GiveWP plugins simultaneously
 -   **Consistent formatting**: All plugins share the same formatting rules
 -   **Centralized configuration**: One set of rules for the entire ecosystem
@@ -275,7 +275,7 @@ The following extensions are **required** for the configurations to work properl
 ```
 .
 ├── .vscode/
-│   ├── settings.json      # VS Code settings (includes Prettier config)
+│   ├── settings.json      # VS Code/Cursor settings (includes Prettier config)
 │   └── extensions.json    # Recommended extensions
 ├── .php-cs-fixer.php      # PHP CS Fixer configuration
 ├── composer.json          # PHP dependencies
@@ -294,7 +294,7 @@ To customize Prettier, edit the `.vscode/settings.json` file (Prettier settings 
 
 ### Project-Specific Settings
 
-Settings are centralized in the `.vscode/settings.json` file. You can add project-specific settings in this file.
+Settings are centralized in the `.vscode/settings.json` file. You can add project-specific settings in this file. These settings work identically in both VS Code and Cursor.
 
 ## 🐛 Troubleshooting
 
@@ -308,7 +308,7 @@ Settings are centralized in the `.vscode/settings.json` file. You can add projec
 
 1. Check if the Prettier extension is installed
 2. Check if Prettier settings are configured in `.vscode/settings.json`
-3. Restart VS Code
+3. Restart VS Code/Cursor
 
 ### PHP IntelliSense not working
 
