@@ -37,96 +37,6 @@ your-wordpress-site/
 -   **Consistent formatting**: All plugins share the same formatting rules
 -   **Centralized configuration**: One set of rules for the entire ecosystem
 
-## 🔧 PHP Namespace Management Script
-
-### Overview
-
-The `scripts/fix-current-file-namespace.php` script provides **PHPStorm-like namespace management** for PHP files when they are moved between directories. This is a **manual alternative** to PHPStorm's automatic namespace refactoring feature, which is not available in VS Code/Cursor for PHP files.
-
-### When to Use
-
-Use this script when you:
-
--   Move a PHP file **within the `src/` directory** to another location
--   Need to update the namespace declaration to match the new directory structure
--   Want to automatically update all references to the moved class in other files
-
-**⚠️ Important**: This script only works for files that are **inside the `src/` directory**. However, it can update references to the moved class in **any PHP file** within the plugins, including files in `includes/`, `admin/`, and other directories.
-
-### How to Use
-
-#### Method 1: Command Palette (Recommended)
-
-1. **Open the file** you want to fix in the editor
-2. **Press `Ctrl+Shift+P`** (or `Cmd+Shift+P` on Mac) to open the Command Palette
-3. **Type "Tasks: Run Task"** and select it
-4. **Select "Fix Current File Namespace"** from the task list
-5. The script will automatically:
-    - Detect the current file path
-    - Calculate the correct namespace based on PSR-4 standards
-    - Update the namespace declaration in the file
-    - Find and update all references in other files
-
-#### Method 2: Manual Command
-
-```bash
-php scripts/fix-current-file-namespace.php <path-to-file>
-```
-
-Example:
-
-```bash
-php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
-```
-
-### What the Script Does
-
-1. **Analyzes the file**: Reads the current namespace and file location
-2. **Calculates correct namespace**: Based on PSR-4 standards and the file's directory structure
-3. **Updates namespace declaration**: Modifies the `namespace` statement at the top of the file
-4. **Updates references**: Finds all `use` statements in other files and updates them to the new namespace
-5. **Provides feedback**: Shows what changes were made and which files were updated
-
-### ⚠️ Important Warnings
-
-**This script is experimental and should be used with caution:**
-
-1. **Always verify changes**: Don't trust the script blindly - review the changes it makes
-2. **Check for syntax errors**: Run `php -l <filename>` to verify the file has no syntax errors
-3. **Test functionality**: Ensure the updated code still works as expected
-4. **Manual verification**: Check that all references were updated correctly
-
-### Limitations
-
--   **Manual process**: Unlike PHPStorm, you must run the script manually for each moved file
--   **Experimental nature**: The script may not handle all edge cases perfectly
--   **No undo functionality**: Changes are applied directly to files
--   **Limited to PSR-4**: Designed for GiveWP's PSR-4 namespace structure
--   **Source files only**: Only works for files **inside the `src/` directory** (but can update references anywhere)
-
-### Example Output
-
-```
-🔍 Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
-📁 Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers
-🏷️  Current namespace: Give\API\REST\V3\Routes\Subscriptions
-🎯 Expected namespace: Give\API\REST\V3\Routes\Controllers
-
-🔄 Updating namespace...
-✅ Namespace updated in file
-🔗 Updating references in other files...
-  ✓ Updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
-✅ References updated in 1 files
-🎉 Process completed!
-```
-
-### Troubleshooting
-
--   **Script not found**: Ensure the `scripts/` directory exists in your project root
--   **Permission errors**: Make sure the script has execute permissions
--   **Namespace not updated**: Check if the file path is correct and follows PSR-4 structure
--   **References not found**: The script searches in all PHP files within `wp-content/plugins/*/` directories
-
 ## 📏 Code Standards & Development Features
 
 ### PHP Standards & Advanced Features
@@ -175,6 +85,94 @@ This configuration transforms VS Code/Cursor into a powerful PHP development env
     -   Type `/**` and press Enter to automatically generate complete DocBlocks
     -   Intelligent parameter and return type suggestions
 -   **WordPress Integration**: Advanced understanding of WordPress hooks, functions, and patterns
+
+#### 🔧 PHP Namespace Management Script
+
+The `scripts/fix-current-file-namespace.php` script provides **PHPStorm-like namespace management** for PHP files when they are moved between directories. This is a **manual alternative** to PHPStorm's automatic namespace refactoring feature, which is not available in VS Code/Cursor for PHP files.
+
+##### When to Use
+
+Use this script when you:
+
+-   Move a PHP file **within the `src/` directory** to another location
+-   Need to update the namespace declaration to match the new directory structure
+-   Want to automatically update all references to the moved class in other files
+
+**⚠️ Important**: This script only works for files that are **inside the `src/` directory**. However, it can update references to the moved class in **any PHP file** within the plugins, including files in `includes/`, `admin/`, and other directories.
+
+##### How to Use
+
+**Method 1: Command Palette (Recommended)**
+
+1. **Open the file** you want to fix in the editor
+2. **Press `Ctrl+Shift+P`** (or `Cmd+Shift+P` on Mac) to open the Command Palette
+3. **Type "Tasks: Run Task"** and select it
+4. **Select "Fix Current File Namespace"** from the task list
+5. The script will automatically:
+    - Detect the current file path
+    - Calculate the correct namespace based on PSR-4 standards
+    - Update the namespace declaration in the file
+    - Find and update all references in other files
+
+**Method 2: Manual Command**
+
+```bash
+php scripts/fix-current-file-namespace.php <path-to-file>
+```
+
+Example:
+
+```bash
+php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
+```
+
+##### What the Script Does
+
+1. **Analyzes the file**: Reads the current namespace and file location
+2. **Calculates correct namespace**: Based on PSR-4 standards and the file's directory structure
+3. **Updates namespace declaration**: Modifies the `namespace` statement at the top of the file
+4. **Updates references**: Finds all `use` statements in other files and updates them to the new namespace
+5. **Provides feedback**: Shows what changes were made and which files were updated
+
+##### ⚠️ Important Warnings
+
+**This script is experimental and should be used with caution:**
+
+1. **Always verify changes**: Don't trust the script blindly - review the changes it makes
+2. **Check for syntax errors**: Run `php -l <filename>` to verify the file has no syntax errors
+3. **Test functionality**: Ensure the updated code still works as expected
+4. **Manual verification**: Check that all references were updated correctly
+
+##### Limitations
+
+-   **Manual process**: Unlike PHPStorm, you must run the script manually for each moved file
+-   **Experimental nature**: The script may not handle all edge cases perfectly
+-   **No undo functionality**: Changes are applied directly to files
+-   **Limited to PSR-4**: Designed for GiveWP's PSR-4 namespace structure
+-   **Source files only**: Only works for files **inside the `src/` directory** (but can update references anywhere)
+
+##### Example Output
+
+```
+🔍 Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
+📁 Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers
+🏷️  Current namespace: Give\API\REST\V3\Routes\Subscriptions
+🎯 Expected namespace: Give\API\REST\V3\Routes\Controllers
+
+🔄 Updating namespace...
+✅ Namespace updated in file
+🔗 Updating references in other files...
+  ✓ Updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
+✅ References updated in 1 files
+🎉 Process completed!
+```
+
+##### Troubleshooting
+
+-   **Script not found**: Ensure the `scripts/` directory exists in your project root
+-   **Permission errors**: Make sure the script has execute permissions
+-   **Namespace not updated**: Check if the file path is correct and follows PSR-4 structure
+-   **References not found**: The script searches in all PHP files within `wp-content/plugins/*/` directories
 
 ## 🏗️ Project Structure Philosophy
 
