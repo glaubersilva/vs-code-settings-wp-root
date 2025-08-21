@@ -215,22 +215,20 @@ function findPhpFiles($dir)
 {
     $files = [];
 
-    // Look for src/ folders inside wp-content/plugins/
+    // Look for all PHP files inside wp-content/plugins/
     $pluginsDir = $dir . '/wp-content/plugins';
     if (is_dir($pluginsDir)) {
         $plugins = glob($pluginsDir . '/*', GLOB_ONLYDIR);
 
         foreach ($plugins as $pluginDir) {
-            $srcDir = $pluginDir . '/src';
-            if (is_dir($srcDir)) {
-                $iterator = new RecursiveIteratorIterator(
-                    new RecursiveDirectoryIterator($srcDir, RecursiveDirectoryIterator::SKIP_DOTS)
-                );
+            // Search recursively in the entire plugin directory
+            $iterator = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($pluginDir, RecursiveDirectoryIterator::SKIP_DOTS)
+            );
 
-                foreach ($iterator as $file) {
-                    if ($file->getExtension() === 'php') {
-                        $files[] = $file->getPathname();
-                    }
+            foreach ($iterator as $file) {
+                if ($file->getExtension() === 'php') {
+                    $files[] = $file->getPathname();
                 }
             }
         }
