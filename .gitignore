@@ -8,7 +8,12 @@
 !composer.lock
 !README.md
 
-# And not these directories...
+# And not these settings...
 !.vscode/
 !.vscode/settings.json
 !.vscode/extensions.json
+!.vscode/tasks.json
+
+# And not these scripts...
+!scripts/
+!scripts/fix-current-file-namespace.php
