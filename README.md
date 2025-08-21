@@ -354,6 +354,7 @@ The following extensions are **required** for the configurations to work properl
 -   **Automatic Import Organization**: JavaScript/TypeScript imports organized on save
 -   **PHP Namespace Management**: Automatic namespace resolution and use statement generation via PHP CS Fixer
 -   **DocBlock Generation**: Type `/**` and press Enter for automatic documentation block generation
+-   **Namespace Refactoring Script**: Manual namespace management tool for moving PHP files between directories
 
 ### Exclusions
 
