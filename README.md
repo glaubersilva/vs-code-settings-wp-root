@@ -136,6 +136,9 @@ The following extensions are **required** for the configurations to work properl
 
     -   Provides IntelliSense, autocomplete, and navigation for PHP
     -   Configured to work only with IntelliSense (formatting disabled)
+    -   **⚠️ EXTREMELY IMPORTANT**: Purchase the **lifetime license** for premium features and superior PHP code navigation
+    -   **Premium features include**: Advanced code analysis, better autocomplete, improved refactoring tools, and enhanced code navigation
+    -   **Without the license**: Limited functionality and basic IntelliSense only
 
 -   **PHP CS Fixer** (`junstyle.php-cs-fixer`)
     -   Automatic PHP code formatting following PSR-12
@@ -157,6 +160,33 @@ The following extensions are **required** for the configurations to work properl
 
 -   **TypeScript Next** (`ms-vscode.vscode-typescript-next`)
     -   Enhanced TypeScript support
+
+### 2.5. ⚠️ CRITICAL: Intelephense Lifetime License
+
+**The PHP Intelephense extension requires a lifetime license for optimal PHP development experience.**
+
+#### Why the Lifetime License is Essential:
+
+-   **Advanced Code Analysis**: Superior understanding of PHP code structure and relationships
+-   **Enhanced Autocomplete**: More accurate and context-aware code suggestions
+-   **Improved Refactoring**: Better tools for renaming, moving, and restructuring code
+-   **Superior Navigation**: Advanced "Go to Definition", "Find All References", and "Go to Implementation"
+-   **Better Error Detection**: More accurate syntax and semantic error detection
+-   **Namespace Management**: Enhanced namespace resolution and import suggestions
+-   **WordPress Integration**: Better understanding of WordPress hooks, functions, and patterns
+
+#### Without the License:
+
+-   Limited IntelliSense functionality
+-   Basic autocomplete only
+-   Reduced code analysis capabilities
+-   Missing advanced navigation features
+
+#### Purchase Information:
+
+-   **One-time payment**: Lifetime access to all premium features
+-   **Available at**: [Intelephense Premium](https://intelephense.com/premium)
+-   **Investment**: Essential for professional PHP development
 
 ### 3. Recommended Extensions (Optional)
 
@@ -180,9 +210,7 @@ The following extensions are **required** for the configurations to work properl
 
 #### Advanced PHP
 
--   **PHP DocBlocker** (`neilbrayfield.php-docblocker`) - PHP DocBlock generator
 -   **PHP Debug** (`xdebug.php-debug`) - PHP debugging support
--   **Tag Highlight Matching** (`vincaslt.highlight-matching-tag`) - Highlights matching HTML/XML tags
 
 ## ⚙️ Included Configurations
 

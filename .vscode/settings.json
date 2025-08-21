@@ -10,6 +10,7 @@
     "files.trimFinalNewlines": true,
 
     // PHP Configuration - Set PHP CS Fixer as default formatter
+    "php.suggest.basic": false,
     "[php]": {
         "editor.defaultFormatter": "junstyle.php-cs-fixer"
     },
@@ -32,10 +33,38 @@
         "wp-content/cache/**",
         "**/includes/**"
     ],
+
     "php-cs-fixer.autoFixByBracket": false,
     "php-cs-fixer.autoFixBySemicolon": false,
     "php-cs-fixer.formatHtml": false,
     "php-cs-fixer.documentFormattingProvider": true,
+
+    // PHP Intelephense Configuration (IntelliSense only)
+    "intelephense.format.enable": false,
+    "intelephense.completion.insertUseDeclaration": true,
+    "intelephense.completion.triggerParameterHints": true,
+    "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
+    "intelephense.codeLens.implementations.enable": true,
+    "intelephense.codeLens.overrides.enable": true,
+    "intelephense.codeLens.parent.enable": true,
+    "intelephense.codeLens.references.enable": true,
+    "intelephense.codeLens.usages.enable": true,
+    "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+    "intelephense.phpdoc.propertyTemplate": {
+        "summary": "$1",
+        "tags": ["@var ${1:$SYMBOL_TYPE}"]
+    },
+    "intelephense.files.associations": ["*.php", "*.phtml"],
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/.history/**"
+    ],
 
     // JavaScript/TypeScript Configuration
     "[javascript]": {
@@ -91,30 +120,6 @@
     "prettier.printWidth": 120,
     "prettier.tabWidth": 4,
     "prettier.bracketSpacing": false,
-
-    // PHP Intelephense Configuration (IntelliSense only)
-    "intelephense.format.enable": false,
-    "intelephense.completion.insertUseDeclaration": true,
-    "intelephense.completion.triggerParameterHints": true,
-    "intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
-    "intelephense.codeLens.implementations.enable": true,
-    "intelephense.codeLens.overrides.enable": true,
-    "intelephense.codeLens.parent.enable": true,
-    "intelephense.codeLens.references.enable": true,
-    "intelephense.codeLens.usages.enable": true,
-    "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
-    "intelephense.files.associations": ["*.php", "*.phtml"],
-    "intelephense.files.exclude": [
-        "**/.git/**",
-        "**/.svn/**",
-        "**/.hg/**",
-        "**/CVS/**",
-        "**/.DS_Store/**",
-        "**/node_modules/**",
-        "**/bower_components/**",
-        "**/.history/**",
-        "**/includes/**"
-    ],
 
     // ESLint Configuration
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],

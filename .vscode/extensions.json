@@ -29,8 +29,6 @@
         "johnbillion.vscode-wordpress-hooks", // WordPress hooks IntelliSense
 
         // Advanced PHP
-        "neilbrayfield.php-docblocker", // PHP DocBlock generator
-        "xdebug.php-debug", // PHP debugging support
-        "vincaslt.highlight-matching-tag" // Highlights matching HTML/XML tags
+        "xdebug.php-debug" // PHP debugging support
     ]
 }
