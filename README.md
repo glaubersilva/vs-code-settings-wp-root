@@ -234,7 +234,7 @@ The following extensions are **required** for the configurations to work properl
 
 #### Git and Version Control
 
--   **Git Toolbox** (`gondor.git-toolbox`) - Enhanced Git capabilities and visualization
+-   **Git Toolbox** (`gondor.git-toolbox`) - Git Toolbox is a powerful collection of Git extensions
 -   **Open in GitHub, GitLab, Gitea, Bitbucket, VisualStudio.com** (`ziyasal.vscode-open-in-github`) - Open files in Git platforms
 
 #### WordPress Development

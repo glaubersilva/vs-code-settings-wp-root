@@ -22,7 +22,7 @@
         "CoenraadS.bracket-pair-colorizer-2", // Colorizes matching brackets
 
         // Git and Version Control
-        "eamodio.gitlens", // Enhanced Git capabilities and visualization
+        "gondor.git-toolbox", // Git Toolbox is a powerful collection of Git extensions
         "ziyasal.vscode-open-in-github", // Open files in Git platforms
 
         // WordPress Development
