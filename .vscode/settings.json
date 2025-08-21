@@ -9,12 +9,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
 
-    // PHP Configuration - Set PHP CS Fixer as default formatter
-    "php.suggest.basic": true,
-    "[php]": {
-        "editor.defaultFormatter": "junstyle.php-cs-fixer"
-    },
-
     // PHP CS Fixer Configuration - Using Composer installed version
     "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
     "php-cs-fixer.executablePathWindows": "${workspaceFolder}/vendor/bin/php-cs-fixer.bat",
@@ -65,6 +59,15 @@
         "**/bower_components/**",
         "**/.history/**"
     ],
+
+    // Important to keep this option as true to receive VS Code suggestions for PHP native functions like empty(),
+    // since Intelephense stubs don't provide information about some built-in functions
+    "php.suggest.basic": true,
+
+    // PHP Configuration - Set PHP CS Fixer as default formatter
+    "[php]": {
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
 
     // JavaScript/TypeScript Configuration
     "[javascript]": {
@@ -123,12 +126,12 @@
 
     // ESLint Configuration
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-    "eslint.workingDirectories": ["./"],
 
     // TypeScript Configuration
     "typescript.preferences.importModuleSpecifier": "relative",
     "typescript.suggest.autoImports": true,
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.includePackageJsonAutoImports": "off",
 
     // File Associations
     "files.associations": {
@@ -142,19 +145,12 @@
         "*.scss": "scss"
     },
 
-    // Exclude patterns
-    "files.exclude": {
-        "**/node_modules": true,
-        "**/.git": true,
-        "**/build": true,
-        "**/dist": true
-    },
-
-    // Search exclude patterns
+    // Search exclude patterns (excludes from general searches, but keeps for Intelephense)
     "search.exclude": {
         "**/node_modules": true,
         "**/.git": true,
         "**/build": true,
-        "**/dist": true
+        "**/dist": true,
+        "**/vendor": true
     }
 }
