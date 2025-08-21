@@ -123,7 +123,7 @@ php scripts/fix-current-file-namespace.php <path-to-file>
 Example:
 
 ```bash
-php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
+php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/V3/Routes/Subscriptions/SubscriptionController.php
 ```
 
 ##### What the Script Does
