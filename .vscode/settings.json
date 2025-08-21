@@ -144,5 +144,19 @@
         "*.json": "json",
         "*.css": "css",
         "*.scss": "scss"
+    },
+
+    // Hide specific files and folders from sidebar
+    "files.exclude": {
+        "**/local-phpinfo.php": true,
+        "**/local-xdebuginfo.php": true,
+        "**/.gitignore": true,
+        "**/.php-cs-fixer.cache": true,
+        "**/.php-cs-fixer.php": true,
+        "**/README.md": true,
+        "**/composer.json": true,
+        "**/composer.lock": true,
+        "**/scripts": true,
+        "**/vendor": true
     }
 }
