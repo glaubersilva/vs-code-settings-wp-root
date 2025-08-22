@@ -94,11 +94,11 @@ The `scripts/fix-current-file-namespace.php` script provides **PHPStorm-like nam
 
 Use this script when you:
 
--   Move a PHP file **within the `src/` directory** to another location
+-   Move a PHP file **within any directory of a GiveWP plugin** to another location
 -   Need to update the namespace declaration to match the new directory structure
 -   Want to automatically update all references to the moved class in other files
 
-**⚠️ Important**: This script only works for files that are **inside the `src/` directory**. However, it can update references to the moved class in **any PHP file** within the plugins, including files in `includes/`, `admin/`, and other directories.
+**⚠️ Important**: This script works for files in **any directory within GiveWP plugins** (not just `src/`). It can update references to the moved class in **any PHP file** within the plugins, including files in `includes/`, `admin/`, and other directories.
 
 ##### How to Use
 
@@ -134,6 +134,13 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 4. **Updates references**: Finds all `use` statements in other files and updates them to the new namespace
 5. **Provides feedback**: Shows what changes were made and which files were updated
 
+**Key Features:**
+- **🔄 Flexible scope**: Works with files in any directory within GiveWP plugins
+- **⚡ Optimized performance**: Excludes only `vendor/` and `node_modules/` for fast processing
+- **🧪 Test coverage**: Includes test files to ensure test references are updated
+- **🎯 Multi-plugin support**: Searches across all GiveWP plugins in the ecosystem
+- **📁 Flexible structure**: Works with any directory structure within plugins
+
 ##### ⚠️ Important Warnings
 
 **This script is experimental and should be used with caution:**
@@ -149,7 +156,7 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 -   **Experimental nature**: The script may not handle all edge cases perfectly
 -   **No undo functionality**: Changes are applied directly to files
 -   **Limited to PSR-4**: Designed for GiveWP's PSR-4 namespace structure
--   **Source files only**: Only works for files **inside the `src/` directory** (but can update references anywhere)
+-   **GiveWP plugins only**: Only works for plugins that contain "give" in their name
 
 ##### Example Output
 
@@ -162,8 +169,13 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 🔄 Updating namespace...
 ✅ Namespace updated in file
 🔗 Updating references in other files...
-  ✓ Updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
-✅ References updated in 1 files
+🔍 Searching in Give plugins: give, give-recurring, give-currency-switcher
+🔍 Searching in all PHP files within Give plugins (3 plugins)
+  ✓ Updating use statement on line 15 in wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
+  ✓ File updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
+  ✓ Updating use statement on line 8 in wp-content/plugins/give-recurring/tests/Unit/SubscriptionTest.php
+  ✓ File updated: wp-content/plugins/give-recurring/tests/Unit/SubscriptionTest.php
+✅ References updated in 2 files
 🎉 Process completed!
 ```
 
@@ -172,7 +184,8 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 -   **Script not found**: Ensure the `scripts/` directory exists in your project root
 -   **Permission errors**: Make sure the script has execute permissions
 -   **Namespace not updated**: Check if the file path is correct and follows PSR-4 structure
--   **References not found**: The script searches in all PHP files within `wp-content/plugins/*/` directories
+-   **References not found**: The script searches in all PHP files within GiveWP plugins (excluding `vendor/` and `node_modules/`)
+-   **No plugins found**: Ensure you have plugins with "give" in their name in `wp-content/plugins/`
 
 ## 🏗️ Project Structure Philosophy
 

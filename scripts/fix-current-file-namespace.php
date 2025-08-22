@@ -92,23 +92,37 @@ function calculateNamespaceFromPath($path)
         $path = substr($path, strpos($path, 'wp-content/plugins/') + strlen('wp-content/plugins/'));
     }
 
-    // Remove plugin name (give) and src/
-    if (preg_match('/^give\/src\/(.+)$/', $path, $matches)) {
-        $path = $matches[1];
+    // Extract plugin name and remaining path
+    $pathParts = explode('/', $path, 2);
+    if (count($pathParts) >= 2) {
+        $pluginName = $pathParts[0];
+        $remainingPath = $pathParts[1];
+
+        // Convert path to PSR-4 namespace
+        $namespace = str_replace('/', '\\', $remainingPath);
+
+        // Capitalize each namespace part
+        $parts = explode('\\', $namespace);
+        $parts = array_map('ucfirst', $parts);
+        $namespace = implode('\\', $parts);
+
+        // Add plugin base namespace (for give plugins, use "Give")
+        if (stripos($pluginName, 'give') !== false) {
+            $namespace = 'Give\\' . $namespace;
+        } else {
+            $pluginNamespace = ucfirst($pluginName);
+            $namespace = $pluginNamespace . '\\' . $namespace;
+        }
+
+        return $namespace;
     }
 
-    // Convert path to PSR-4 namespace
-    $namespace = str_replace('/', '\\', $path);
-
-    // Capitalize each namespace part
-    $parts = explode('\\', $namespace);
-    $parts = array_map('ucfirst', $parts);
-    $namespace = implode('\\', $parts);
-
-    // Add plugin base namespace
-    $namespace = 'Give\\' . $namespace;
-
-    return $namespace;
+    // Fallback for files directly in plugin root
+    $pluginName = basename($path);
+    if (stripos($pluginName, 'give') !== false) {
+        return 'Give';
+    }
+    return ucfirst($pluginName);
 }
 
 /**
@@ -148,8 +162,7 @@ function updateFileNamespace($content, $newNamespace)
  */
 function updateReferences($className, $oldNamespace, $newNamespace)
 {
-    $searchDir = getcwd();
-    $files = findFilesWithReferences($className, $searchDir);
+    $files = findFilesWithReferences($className);
 
     $updatedFiles = 0;
 
@@ -211,94 +224,15 @@ function updateReferences($className, $oldNamespace, $newNamespace)
 /**
  * Find files that contain references to the specified class using grep
  */
-function findFilesWithReferences($className, $searchDir)
+function findFilesWithReferences($className)
 {
     $files = [];
 
-    // Directories to exclude from grep search
+    // Directories to exclude from grep search (common in WordPress plugins)
     $excludeDirs = [
         'vendor',
         'node_modules',
-        'bower_components',
-        'dist',
-        'build',
-        'coverage',
-        '.git',
-        '.svn',
-        '.hg',
-        'tests',
-        'test',
-        'testing',
-        'spec',
-        'docs',
-        'documentation',
-        'examples',
-        'samples',
-        'demo',
-        'demos',
-        'assets',
-        'resources',
-        'cache',
-        'tmp',
-        'temp',
-        'logs',
-        'uploads',
-        'backup',
-        'backups',
-        'old',
-        'legacy',
-        'deprecated',
-        'bin',
-        'tools',
-        'scripts',
-        'migrations',
-        'database',
-        'sql',
-        'config',
-        'settings',
-        'lang',
-        'languages',
-        'locale',
-        'i18n',
-        'translations',
-        'images',
-        'img',
-        'css',
-        'js',
-        'fonts',
-        'media',
-        'static',
-        'public',
-        'web',
-        'www',
-        'htdocs',
-        'html',
-        'includes',
-        'lib',
-        'library',
-        'libraries',
-        'framework',
-        'frameworks',
-        'core',
-        'kernel',
-        'system',
-        'admin',
-        'wp-admin',
-        'wp-includes',
-        'wp-content/themes',
-        'wp-content/mu-plugins',
-        'wp-content/uploads',
-        'wp-content/upgrade',
-        'wp-content/upgrade-temp-backup',
-        'wp-content/languages',
-        'wp-content/debug.log'
     ];
-
-    // Build exclude patterns for grep
-    $excludePatterns = [];
-    foreach ($excludeDirs as $dir) {
-        $excludePatterns[] = "--exclude-dir=$dir";
-    }
 
     // Search for use statements containing the class name only in "give" plugins
     $pluginsDir = 'wp-content/plugins';
@@ -333,30 +267,26 @@ function findFilesWithReferences($className, $searchDir)
         } else {
             echo "🔍 Searching in Give plugins: " . implode(', ', array_map('basename', $givePlugins)) . "\n";
 
-            // Execute grep command only on src and includes directories of give plugins
+            // Execute grep command on all PHP files in give plugins, excluding specified directories
             $output = [];
             $returnCode = 0;
-            $searchPaths = [];
-
-            foreach ($givePlugins as $plugin) {
-                $srcPath = $plugin . '/src';
-                $includesPath = $plugin . '/includes';
-
-                if (is_dir($srcPath)) {
-                    $searchPaths[] = $srcPath;
-                }
-                if (is_dir($includesPath)) {
-                    $searchPaths[] = $includesPath;
-                }
-            }
+            $searchPaths = $givePlugins;
 
             if (empty($searchPaths)) {
-                echo "⚠️  No 'src' or 'includes' directories found in Give plugins\n";
+                echo "⚠️  No Give plugins found\n";
                 $files = [];
             } else {
-                echo "🔍 Searching in src and includes directories (" . count($searchPaths) . " directories)\n";
+                echo "🔍 Searching in all PHP files within Give plugins (" . count($searchPaths) . " plugins)\n";
+
+                // Build exclude patterns for grep
+                $excludePatterns = [];
+                foreach ($excludeDirs as $dir) {
+                    $excludePatterns[] = "--exclude-dir=$dir";
+                }
+
                 $searchPathsString = implode(' ', array_map('escapeshellarg', $searchPaths));
-                exec("grep -r -l --include='*.php' 'use.*$className' $searchPathsString", $output, $returnCode);
+                $excludePatternsString = implode(' ', $excludePatterns);
+                exec("grep -r -l --include='*.php' $excludePatternsString 'use.*$className' $searchPathsString", $output, $returnCode);
 
                 // grep returns 1 when no matches found, which is normal
                 if ($returnCode === 0 || $returnCode === 1) {
