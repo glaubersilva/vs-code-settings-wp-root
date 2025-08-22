@@ -214,7 +214,7 @@ function updateReferences($className, $oldNamespace, $newNamespace)
         if ($content !== $originalContent) {
             file_put_contents($file, $content);
             $updatedFiles++;
-            echo "  \n✓ File updated: $file\n";
+            echo "  \n► File updated: $file\n";
         }
     }
 
@@ -265,7 +265,7 @@ function findFilesWithReferences($className)
             echo "! No 'give' plugins found\n";
             $files = [];
         } else {
-            echo "\n▓ Searching in Give plugins: " . implode(', ', array_map('basename', $givePlugins)) . "\n";
+            echo "\n●●● Searching in Give plugins: " . implode(', ', array_map('basename', $givePlugins)) . "\n";
 
             // Execute grep command on all PHP files in give plugins, excluding specified directories
             $output = [];
@@ -276,7 +276,7 @@ function findFilesWithReferences($className)
                 echo "! No Give plugins found\n";
                 $files = [];
             } else {
-                echo "\n▓ Searching in all PHP files within Give plugins (" . count($searchPaths) . " plugins)\n";
+                echo "\n●●● Searching in all PHP files within Give plugins (" . count($searchPaths) . " plugins)\n";
 
                 // Build exclude patterns for grep
                 $excludePatterns = [];

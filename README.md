@@ -161,25 +161,25 @@ php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/
 ##### Example Output
 
 ```
-●●● Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php
+●●● Analyzing file: wp-content/plugins/give/src/API/REST/V3/Routes/Subscriptions/SubscriptionController.php
 
-→ Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Controllers
-→ Current namespace: Give\API\REST\V3\Routes\Subscriptions
-→ Expected namespace: Give\Src\API\REST\V3\Routes\Controllers
+→ Current directory: wp-content/plugins/give/src/API/REST/V3/Routes/Subscriptions
+→ Current namespace: Give\API\REST\V3\Routes\Donations
+→ Expected namespace: Give\API\REST\V3\Routes\Subscriptions
 
 ↻ Updating namespace...
 
 ✅ Namespace updated in file
 
-↻ Updating references in other files...
+Updating references in other files...
 
-▓ Searching in Give plugins: give, give-2checkout, give-authorize-gateway, give-blink, give-braintree, give-cloudflare-turnstile, give-constant-contact, give-currency-switcher, give-data-generator, give-donation-upsells-woocommerce, give-fee-recovery, give-form-field-manager, give-funds, give-gift-aid, give-gocardless, give-mailchimp, give-manual-donations, give-mercado-pago, give-mollie, give-payfast, give-paytm, give-pdf-receipts, give-peer-to-peer, give-per-form-gateways, give-razorpay, give-recurring, give-salesforce, give-square, give-stripe, give-tributes, give-webhooks, give-zapier, givewp-addon-boilerplate, givewp-blink-payment, givewp-elementor-widgets, givewp-github-actions
+●●● Searching in Give plugins: give, give-recurring, give-currency-switcher
 
-▓ Searching in all PHP files within Give plugins (36 plugins)
+●●● Searching in all PHP files within Give plugins (3 plugins)
 
-✓ Fixing incorrect namespace on line 14 in wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php (Give\API\REST\V3\Routes\Subscriptions -> Give\Src\API\REST\V3\Routes\Controllers)
+✓ Fixing incorrect namespace on line 14 in wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php (Give\API\REST\V3\Routes\Donations -> Give\API\REST\V3\Routes\Subscriptions)
 
-✓ File updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
+► File updated: wp-content/plugins/give/src/API/REST/V3/Routes/ServiceProvider.php
 
 ✅ References updated in 1 files
 
