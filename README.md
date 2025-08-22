@@ -384,20 +384,6 @@ The following extensions are **required** for the configurations to work properl
 -   `wp-content/uploads/` and `wp-content/cache/` - WordPress uploads and cache
 -   `**/includes/**` - Legacy code directories (excluded from auto-formatting to preserve existing functionality)
 
-## 📁 File Structure
-
-```
-.
-├── .vscode/
-│   ├── settings.json      # VS Code/Cursor settings (includes Prettier config)
-│   └── extensions.json    # Recommended extensions
-├── .php-cs-fixer.php      # PHP CS Fixer configuration
-├── composer.json          # PHP dependencies
-├── composer.lock          # PHP version lock
-├── .gitignore            # Git ignored files
-└── README.md             # This file
-```
-
 ## 🔧 Customization
 
 ### Adding New Formatting Rules
