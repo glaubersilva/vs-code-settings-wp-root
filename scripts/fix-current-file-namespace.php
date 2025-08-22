@@ -10,7 +10,7 @@
  */
 
 if ($argc < 2) {
-    echo "❌ Usage: php scripts/fix-current-file-namespace.php <file_path>\n";
+    echo "✗ Usage: php scripts/fix-current-file-namespace.php <file_path>\n";
     echo "Example: php scripts/fix-current-file-namespace.php wp-content/plugins/give/src/API/REST/V3/Routes/Controllers/SubscriptionController.php\n";
     exit(1);
 }
@@ -18,11 +18,11 @@ if ($argc < 2) {
 $filePath = $argv[1];
 
 if (!file_exists($filePath)) {
-    echo "❌ File not found: $filePath\n";
+    echo "✗ File not found: $filePath\n";
     exit(1);
 }
 
-echo "🔍 Analyzing file: $filePath\n";
+echo "●●● Analyzing file: $filePath\n\n";
 
 // Read file content
 $content = file_get_contents($filePath);
@@ -32,30 +32,30 @@ $className = extractClassName($content);
 $currentNamespace = extractNamespace($content);
 $expectedNamespace = calculateNamespaceFromPath(dirname($filePath));
 
-echo "📁 Current directory: " . dirname($filePath) . "\n";
-echo "🏷️  Current namespace: $currentNamespace\n";
-echo "🎯 Expected namespace: $expectedNamespace\n";
+echo "→ Current directory: " . dirname($filePath) . "\n";
+echo "→ Current namespace: $currentNamespace\n";
+echo "→ Expected namespace: $expectedNamespace\n";
 
 if ($currentNamespace === $expectedNamespace) {
-    echo "✅ Namespace is already correct!\n";
+    echo "\n✅ Namespace is already correct!\n\n";
 } else {
-    echo "\n🔄 Updating namespace...\n";
+    echo "\n↻ Updating namespace...\n";
 
     // Update namespace in file
     $updatedContent = updateFileNamespace($content, $expectedNamespace);
     file_put_contents($filePath, $updatedContent);
 
-    echo "✅ Namespace updated in file\n";
+    echo "\n✅ Namespace updated in file\n\n";
 }
 
 // Update references in other files
 if ($className) {
-    echo "🔗 Updating references in other files...\n";
+    echo "\n↻ Updating references in other files...\n";
     // Always update references, even if the main file namespace is already correct
     updateReferences($className, $currentNamespace, $expectedNamespace);
 }
 
-echo "🎉 Process completed!\n";
+echo "\n♥♥♥ Process completed! ♥♥♥\n\n";
 
 /**
  * Extract class name from PHP file content
@@ -201,7 +201,7 @@ function updateReferences($className, $oldNamespace, $newNamespace)
                             $line
                         );
                         $updated = true;
-                        echo "  ✓ Fixing incorrect namespace on line " . ($i + 1) . " in $file ($currentNamespace -> $newNamespace)\n";
+                        echo "  \n✓ Fixing incorrect namespace on line " . ($i + 1) . " in $file ($currentNamespace -> $newNamespace)\n";
                     }
                 }
             }
@@ -214,11 +214,11 @@ function updateReferences($className, $oldNamespace, $newNamespace)
         if ($content !== $originalContent) {
             file_put_contents($file, $content);
             $updatedFiles++;
-            echo "  ✓ File updated: $file\n";
+            echo "  \n✓ File updated: $file\n";
         }
     }
 
-    echo "✅ References updated in $updatedFiles files\n";
+    echo "\n✅ References updated in $updatedFiles files\n\n";
 }
 
 /**
@@ -262,10 +262,10 @@ function findFilesWithReferences($className)
         }
 
         if (empty($givePlugins)) {
-            echo "⚠️  No 'give' plugins found\n";
+            echo "! No 'give' plugins found\n";
             $files = [];
         } else {
-            echo "🔍 Searching in Give plugins: " . implode(', ', array_map('basename', $givePlugins)) . "\n";
+            echo "\n▓ Searching in Give plugins: " . implode(', ', array_map('basename', $givePlugins)) . "\n";
 
             // Execute grep command on all PHP files in give plugins, excluding specified directories
             $output = [];
@@ -273,10 +273,10 @@ function findFilesWithReferences($className)
             $searchPaths = $givePlugins;
 
             if (empty($searchPaths)) {
-                echo "⚠️  No Give plugins found\n";
+                echo "! No Give plugins found\n";
                 $files = [];
             } else {
-                echo "🔍 Searching in all PHP files within Give plugins (" . count($searchPaths) . " plugins)\n";
+                echo "\n▓ Searching in all PHP files within Give plugins (" . count($searchPaths) . " plugins)\n";
 
                 // Build exclude patterns for grep
                 $excludePatterns = [];
@@ -292,7 +292,7 @@ function findFilesWithReferences($className)
                 if ($returnCode === 0 || $returnCode === 1) {
                     $files = $output;
                 } else {
-                    echo "⚠️  Warning: grep command failed, no files will be updated\n";
+                    echo "! Warning: grep command failed, no files will be updated\n";
                     $files = [];
                 }
             }
