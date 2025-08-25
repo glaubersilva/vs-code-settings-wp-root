@@ -146,17 +146,20 @@
         "*.scss": "scss"
     },
 
-    // Hide specific files and folders from sidebar
-    "files.exclude": {
-        "**/local-phpinfo.php": true,
-        "**/local-xdebuginfo.php": true,
-        "**/.gitignore": true,
-        "**/.php-cs-fixer.cache": true,
-        "**/.php-cs-fixer.php": true,
-        "**/README.md": true,
-        "**/composer.json": true,
-        "**/composer.lock": true,
-        "**/scripts": true,
-        "**/vendor": true
+    // Search Configuration
+    // Disable all .gitignore files for search/indexing and use manual exclusions
+    "search.useIgnoreFiles": false,
+    "search.useGlobalIgnoreFiles": false,
+    "search.useParentIgnoreFiles": false,
+
+    // Exclude specific files/folders from search but allow plugin files
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor": true, // Remove this line if you need to search in vendor dependencies
+        "**/.git": true,
+        "**/wp-content/uploads": true,
+        "**/wp-content/cache": true
     }
 }
